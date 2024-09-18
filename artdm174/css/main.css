@@ -1,0 +1,79 @@
+/*
+Author: Josh T
+File Name: main.css for Lab 1
+*/
+
+/* CSS Reset */
+body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    background-image: url(../images/carbon_fibre.webp);
+    color: rgb(182, 127, 19);
+
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main{
+    margin: 2%;
+}
+
+h1{
+    font-family: Helvetica, Arial, sans-serif;
+    color: rgb(165, 25, 25);
+
+    animation: textJiggle 1s ease;
+    animation-fill-mode: forwards;
+}
+
+.about p{
+    color: white;
+}
+
+h2{
+    text-decoration: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    color: rgb(165, 25, 25);
+
+    padding: 5px;
+}
+
+.projects, .labs{
+    margin: 4%;
+    padding: 2em;
+    background-color: rgba(163, 163, 163, 20%);
+    border-radius: 10px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li a{
+
+    color: white;
+    font-size: large;
+}
+
+@keyframes textJiggle{
+        /*At the start of the minimize animation, set the effected element to not be translated at all and to recieve all clicks*/
+        0% {
+            font-size: 24pt;
+            transform: translateY(-50px);
+        }
+        /*In the middle of the minimize animation, set the effected element to be lower*/
+        60%{
+            font-size: 32pt;
+        }
+    
+        /*At the end of the minimize animation, to not recieve any clicks and to be invisible and to be really really small, essentially deleted*/
+        100%{
+            font-size: 24pt;
+
+    
+        }
+
+}
