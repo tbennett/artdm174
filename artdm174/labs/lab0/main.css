@@ -1,0 +1,244 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Patua+One);
+
+* {
+    box-sizing: border-box;
+}
+
+
+/*
+Author: Josh T
+File Name: main.css for Lab 0
+*/
+
+/* CSS Reset */
+body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*by default, set the background to the grasss image, font to Lato and set the text align to centers*/
+body{
+    background-image: url(images/grass.jpg);
+    font-family: 'Lato', Helvetica, sans-serif;
+    text-align: center;
+}
+
+/*STYLING FOR THE HEADER AND NAV BAR*/
+
+/*set the header to be on a partially transparent black background and the text in it to have a slight shadow*/
+header{
+    background-color: rgba(0, 0, 0, 70%);
+    text-shadow: 0px 2px 0px black;
+}
+
+/*set the top heading to be in white 28pt Patua One font*/
+header h1{
+    color: white;
+    font-family: 'Patua One', sans-serif;
+    font-size: 28pt;
+}
+
+/*set the ampersand in the top heading to be Lucida Sans font and be in italics*/
+header h1 .top_heading_amp{
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+    font-style: italic;
+}
+
+/*set the subheading in the header to be yellowish, 16pts in size and have a slight padding at the top*/
+header h2{
+    color: rgb(194, 193, 133);
+    font-size: 16pt;
+    padding: 1em 0 0 0;
+}
+
+/*set all text in the nav bar to be bold*/
+nav{
+    font-weight: bold;
+}
+
+/*remove the list styling in the nav bar unordered list*/
+nav ul {
+    list-style-type: none;
+}
+
+/*set the nav bar list items to be 20pt text in a single line with a slight padding around them*/
+nav li {
+    display: inline-block;
+    padding: 1em 4%;
+    font-size: 20pt;
+}
+
+/*set the links in the nav bar to be white in color*/
+nav li a {
+    color: white;
+}
+
+/*STYLING FOR THE MAIN CONTENT*/
+
+/*set the main content to be on a bg background with a margin on top for the grass to peek through*/
+main{
+    background-image: url(images/bg.jpg);
+    margin-top: 8em;
+}
+
+/*set the main image to be rounded with a yellowish border and a margin*/
+/*use a negative top margin to have it sit between the grass and bg backgrounds*/
+.intro img{
+    border: 5px solid rgb(194, 193, 133);
+    border-radius: 50%;
+
+    margin: -4em 1em 2em 1em;
+}
+
+/*set the body text in the intro to be left-aligned and dark green with a white shadow*/
+/*add some padding around it and center it using margins*/
+.intro p{
+    color: rgb(9, 46, 12);
+    text-shadow: 0px 1px 0px white;
+    text-align: left;
+
+    padding: 1em 2em;
+    margin: 0 auto;
+}
+
+/*set the services text inside a box with a partially transparent color, shadow and rounded corners*/
+/*add margin and padding and make the text left-aligned and closer together with a white shadow*/
+.services{
+    background-color: rgba(180, 180, 180, 50%);
+    box-shadow: 3px 3px 8px black;
+    display: block;
+
+    border-radius: 15px 0px 15px 50px;
+    margin: 2em;
+    padding: 2em;
+
+    text-shadow: 0px 1px 0px white;
+    text-align: left;
+
+    line-height: 1;
+
+}
+
+/*set the services heading to have a line underneath with a small amount of padding and no shadow*/
+.services h2{
+    border-bottom: 2px solid gray;
+    padding-bottom: 0.5em;
+    text-shadow: none;
+    text-align: center;
+}
+
+/*set the body text in the services section to be dark gray with a white shadow*/
+.services p{
+    color: rgb(9, 46, 12);
+
+}
+
+/*set the service titles to be black and medium font with no shadow*/
+.services h3{
+    color: black;
+    font-size: medium;
+    text-shadow: none;
+
+}
+
+/*after each service title, insert a newline*/
+.services h3::after{
+    content: "\a";
+}
+
+/*set the lists in the services section to be */
+.services ul{
+    color: rgb(9, 46, 12);
+    list-style-type: disc;
+}
+
+/*set the contact information to be in a green box with a slight border*/
+/*set that info to be in yellow text with some padding around it*/
+.contact{
+    background-color: rgba(43, 70, 44, 80%);
+    border: 2px solid rgb(52, 84, 53);
+    color: rgb(194, 193, 133);
+    padding: 1em;
+}
+
+/*set the contact heading to have a black shadow and be of xx-large font*/
+.contact h2{
+    text-shadow: 0px 3px 2px black;
+    font-size: xx-large;
+
+}
+
+/*set the image list items to be in a straight line with some padding*/
+.contact li{
+    display: inline-block;
+    padding: 1em;
+}
+
+/*set the phone number to be bold, yellowish font in x-large size*/
+.contact a{
+    color: rgb(194, 193, 133);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+/*STYLING FOR THE FOOTER*/
+
+/*set the footer to be on a dark green background with padding and yellowish text*/
+footer{
+    background-color: rgb(9, 46, 12);
+    color: rgb(194, 193, 133);
+    padding: 1em;
+}
+
+
+
+
+
+
+
+/*STYLING FOR LARGER VIEWPORTS*/
+@media only screen and (min-width : 700px) {
+
+    /*change the header to be a larger size*/
+    header h1{
+        font-size: 42pt;
+    }
+
+    /*change the links to turn dark green with overlines when they're hovered over*/
+    nav li a:hover {
+        color: rgb(52, 84, 53);
+        text-decoration: overline;
+    }
+
+    /*change the links to turn yellowish when clicked*/
+    nav li a:active {
+        color: rgb(194, 193, 133);
+    }
+
+    /*change the body text of the intro to be a max width of 690px*/
+    .intro p{
+        max-width: 690px;
+
+    }
+
+    /*change the services section*/
+    .services{
+        max-width: 700px;
+        margin: 2em auto;
+    }
+
+    /*remove the newline after the service titles*/
+    .services h3::after{
+        content: "";
+    }
+
+    /*change the service titles to be inline with the service descriptions*/
+    .services h3{
+        display: inline-block;
+    }
+
+
+}
+

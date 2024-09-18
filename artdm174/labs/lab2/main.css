@@ -1,0 +1,236 @@
+/*
+Author: Josh T
+File Name: main.css for Lab 2
+*/
+
+/* CSS Reset */
+body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*these are css variables to define the most used colors on this webpage*/
+:root{
+    --first-color: rgb(39, 229, 222);
+    --second-color: rgb(162, 237, 162);
+    --third-color: rgb(104, 188, 104);
+}
+
+/*set Trebuchet MS to the default font and set all text to be center aligned*/
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    
+}
+
+/*set the intro card to be in front of the actual content on the page
+set the background of the div to be the intro banner image.
+set the div to take up the whole screen
+play the minimize animation a little bit after the page loads
+*/
+.introCard{
+    z-index: 2; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+
+
+    background-image: url(images/introBanner.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100vw;
+    height: 120vh;
+
+    animation: minimize 0.7s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1.3s;
+
+}
+
+/*center the intro card heading and give it some padding.  change its color and add a small text shadow
+play the textMinimize animation to "erase" it from the page
+*/
+.introCard h2{
+    margin: auto 0;
+    padding: 2rem;
+    font-size: 40pt;
+
+    color: var(--first-color);
+    text-shadow: 2px 2px 3px var(--third-color);
+
+    animation: textMinimize 0.1s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1.9s;
+}
+
+/*place the contents of the page behind the intro card*/
+.content{
+    z-index: 1; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+}
+
+
+/*give the main heading a margin and change it's color */
+header h1{
+    margin: 1em;
+    color: var(--second-color);
+}
+
+/*change the background color of the nav bar*/
+nav{
+    background-color: var(--second-color);
+}
+
+/*display the nav links in an evenly spaced row*/
+nav ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+
+}
+
+/*give the nav links a bit of padding.
+by default, they should have a secondary color background and should be aligned with the nav bar
+have them transition back to this state over 0.2 seconds
+*/
+nav li{
+    padding: 2em;
+
+    background-color: var(--second-color);
+    transform: translate(0px, 0px);
+    transition: all 0.2s linear;
+}
+
+/*
+when hovered over, the nav links should have a third color background and should below the nav bar
+have them transition to this state over 0.2 seconds
+*/
+nav li:hover{
+
+    transform: translate(0px, 20px);
+    background-color: var(--third-color);
+
+    transition: all 0.2s linear;
+
+}
+
+/*remove the underlines on the nav bar links.  make them white and 16pt font*/
+nav li a{
+
+    text-decoration: none;
+    color: white;
+    font-size: 16pt;
+}
+
+/*place padding around the main and change it's background color
+set all text here to be the third color
+*/
+main{
+    padding: 4em;
+    background-color: var(--first-color);
+    color: var(--third-color);
+}
+
+/*space the three product images in a row evenly*/
+.productImages{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+/*have the product images scale to the screen size, up to a maximum width and height
+give each image a small margin on the sides and a border
+1 second after the page loads, play the slide from left animation
+*/
+img{
+    max-height: 300px;
+    max-width: 200px;
+    width: 40%;
+
+    margin: 0em 0.2em;
+
+    object-fit: cover;
+    border: var(--third-color) 5px solid;
+
+    animation: slideFromLeft 1.5s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+/*give the body text's heading an underline an a little padding*/
+h3{
+    padding: 1em;
+    text-decoration: underline;
+}
+
+/*center the body text and made it not spread to the edges of the main*/
+p{
+    margin: 1em auto;
+    width: 80%;
+}
+
+/*set the color of the footer text to the secondary color*/
+footer{
+    color: var(--second-color);
+}
+
+
+@keyframes minimize{
+    /*At the start of the minimize animation, set the effected element to not be translated at all and to recieve all clicks*/
+    0% {
+        transform: translate(0px, 0px);
+        pointer-events: all;
+    }
+    /*In the middle of the minimize animation, set the effected element to be lower*/
+    60%{
+        transform: translate(0px, 100vh);
+    }
+
+    /*At the end of the minimize animation, to not recieve any clicks and to be invisible and to be really really small, essentially deleted*/
+    100%{
+        pointer-events: none;
+        opacity: 0%;
+        width: 0px;
+        height: 0px;
+
+    }
+}
+
+@keyframes textMinimize{
+    /*At the start of the text minimize animation, set the effected element a font size of 40pts*/
+    0%{
+        font-size: 40pt;
+
+    }
+    /*At the end of the text minimize animation, set the effected element to have no padding and be 1pt font size, essentially deleting it*/
+    100%{
+        font-size: 1pt;
+        padding: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes slideFromLeft{
+    /*At the start of the slide from left animation, set the effected element to be left of where it's supposed to be*/
+    0%{
+        transform: translateX(-50px);
+
+    }
+
+    /*A little over half way into the slide from left animation, set the effected element to be a little right of where it's supposed to be*/
+    70%{
+        transform: translateX(10px);
+    }
+
+    /*At the end of the slide from left animation, set the effected element to be exactly where it's supposed to be*/
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
