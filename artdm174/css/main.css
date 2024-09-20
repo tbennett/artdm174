@@ -1,6 +1,6 @@
 /*
 Author: Josh T
-File Name: main.css for Lab 1
+File Name: main.css for Project 1
 */
 
 /* CSS Reset */
@@ -10,29 +10,106 @@ body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, fi
     border: 0;
 }
 
+
+/*
+give the page a background pattern
+set the default text color to gold and default font to Courier New
+*/
 body{
-    background-image: url(../images/carbon_fibre.webp);
+    background-image: url(../images/background-pattern.png);
     color: rgb(182, 127, 19);
 
     font-family: 'Courier New', Courier, monospace;
 }
 
+/*
+give the content some padding
+give it a gray background by default
+play the fade animation to subtly change the color of the background pattern
+*/
 main{
-    margin: 2%;
-}
+    padding: 2%;
+    background-color: gray;
 
-h1{
-    font-family: Helvetica, Arial, sans-serif;
-    color: rgb(165, 25, 25);
-
-    animation: textJiggle 1s ease;
+    animation: fade 6s ease;
     animation-fill-mode: forwards;
 }
 
-.about p{
-    color: white;
+/*
+give the about section a slight margin below to separate it from the project and lab areas
+*/
+.about{
+    margin: 0 0 50px 0;
 }
 
+/*
+on mobile, display the about me text and image in a two row grid
+place that content in a partially transparent gold box with a top and bottom borders
+add some padding along the sides of this box
+finally, play the expand animation when the page loads
+*/
+.intro{
+    display: grid;
+    grid-template-rows: 1fr 0.8fr;
+
+    background-color: rgba(182, 127, 19, 0.2);
+    border-bottom: solid 5px rgb(182, 127, 19);
+    border-top: solid 5px rgb(182, 127, 19);
+
+    padding: 0 1%;
+
+    animation: expand 1.2s ease;
+    animation-fill-mode: forwards;
+
+}
+
+/*
+make the top heading red Helvetica font and have it aligned to the center
+give it padding and set it's opacity to 0, hiding it until it's animation has finished
+play the textFlyIn animation after the expand animation on the intro box
+*/
+h1{
+    font-family: Helvetica, Arial, sans-serif;
+    color: rgb(165, 25, 25);
+    text-align: center;
+
+
+    padding: 1%;
+
+    opacity: 0;
+
+    animation: textFlyIn 1s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1.6s;
+}
+
+/*
+make the image have a max width of 35% and a minimum width of 300px
+give it a slight margin on the top and bottom
+center it in it's cell
+*/
+.about img{
+    max-width: 35%;
+    min-width: 300px;
+
+    margin: 2% auto;
+
+}
+
+/*
+make the text in the about section white
+it's font size should be 2.5vmin, with a minimum font size of 12pts
+*/
+.about p{
+    color: white;
+    font-size: max(12pt, 2.5vmin);
+
+}
+
+/*
+make the subheaders for the projects and labs sections bold, red Helvetica font
+give them a tiny bit of padding
+*/
 h2{
     text-decoration: bold;
     font-family: Helvetica, Arial, sans-serif;
@@ -41,6 +118,9 @@ h2{
     padding: 5px;
 }
 
+/*
+place the projects and labs content in partially transparent gray boxes with rounded corners
+*/
 .projects, .labs{
     margin: 4%;
     padding: 2em;
@@ -48,32 +128,106 @@ h2{
     border-radius: 10px;
 }
 
+/*
+remove the list styling from the unordered lists of projects and labs
+*/
 ul{
     list-style-type: none;
 }
 
+/*
+make the links in the lists white with 14pt font
+*/
 li a{
 
     color: white;
-    font-size: large;
+    font-size: 14pt;
 }
 
-@keyframes textJiggle{
-        /*At the start of the minimize animation, set the effected element to not be translated at all and to recieve all clicks*/
+@keyframes textFlyIn{
+        /*At the start of the textFlyIn animation, have the text be transparent, smaller than normal and above it's ending location*/
         0% {
-            font-size: 24pt;
-            transform: translateY(-50px);
+            font-size: 20pt;
+            transform: translateY(-100px);
+            opacity: 0.2;
         }
-        /*In the middle of the minimize animation, set the effected element to be lower*/
+        /*In the middle of the texFlyIn animation, have the text be larger than normal*/
         60%{
-            font-size: 32pt;
+            font-size: 30pt;
         }
     
-        /*At the end of the minimize animation, to not recieve any clicks and to be invisible and to be really really small, essentially deleted*/
+        /*At the end of the textFlyIn animation, have the text be normal size, fully visible and in the proper place*/
         100%{
             font-size: 24pt;
-
+            transform: translateY(0px);
+            opacity: 1;
     
         }
 
 }
+
+@keyframes fade {
+    /*At the start of the fade animation, have the background color be partially visible, lightening the pattern below it*/
+    0%{
+        background-color: rgba(120, 120, 120, 0.3);
+    }
+
+    /*By the end of the fade animation, have the background color be completely transparent, returning the pattern below to the standard brightness*/
+    100%{
+        background-color: rgba(120, 120, 120, 0);
+    }
+}
+
+@keyframes expand {
+    /*At the start of the expand animation, have the intro box be the standard width but extermely low height*/
+    0%{
+        transform: scaleY(0.000000001);
+    }
+
+    /*60% of the way through the expand animation, have the intro box be taller than it should be*/
+    60%{
+        transform: scaleY(1.1);
+    }
+
+    /*80% of the way through the expand animation, have the intro box be slightly shorter than it should be*/
+    80%{
+        transform: scaleY(0.9);
+    }
+
+    /*90% of the way through the expand animation, have the intro box be slightly taller than it should be*/
+    90%{
+        transform: scaleY(1.05);
+    }
+
+    /*At the end of the expand animation, have the intro box be the desired height*/
+    100%{
+        transform: scaleY(1);
+    }
+}
+
+/*Rules for desktop view*/
+@media only screen and (min-width : 850px) {
+
+    /*
+    For desktops, display the intro image and text next to each other in a flexbox
+    */
+    .intro{
+        display: flex;
+        margin: 1%;
+    }
+
+    /*
+    Add margin around the image
+    */
+    .about img{
+        margin: 2%;
+    }
+
+    /*
+    Add padding around the top and bottom of the intro text
+    */
+    .aboutText{
+        padding: 5% 0;
+    }
+}
+

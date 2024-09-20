@@ -1,3 +1,8 @@
+<!--
+Author: Josh T
+File Name: index.html for Project 1
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,28 +16,49 @@
 
     <main>
 
+        <!--
+        have a section for the information about me
+        -->
         <div class="about">
-            <h1>Hi Y'all!</h1>
 
-            <p>I'm Josh: a student, programmer, web designer and game dev. While I don't have a hyper specific career path in mind, 
-                I love all things digital and would really like to work somewhere in the software industry. 
-                My dream job is to design and program games full time. 
-                Schoolwise, I plan to finish up my Associates' in Game Design and transfer to a 4-year university in Fall 2025 
-                to get my Bachelor's in Computer Science.
-            </p>
+            <!--include an intro header-->
+            <h1>Hey There!<br>I'm Josh</h1>
 
-            <p>
-                Click the white titles below to check out some of my work.
-            </p>
+            <!--include a section for the intro image and text-->
+            <div class = "intro">
+
+                <img src="images/pixel portrait.png" alt="pixel art portrait of a man in a red sweatshirt">
+
+
+                <!--wrap the intro text in a div so that it organizes in a grid properly-->
+                <div class ="aboutText">
+                    <p>I'm a student, programmer, web designer, game dev and much more. While I don't have a hyper specific career path in mind, 
+                        I love all things digital and want to work in the software industry. 
+                        My dream is to design and program games full time. 
+                        Schoolwise, I plan to finish up my Associates' in Game Design and transfer to a 4-year university in Fall 2025 
+                        to get my Bachelor's in Computer Science.
+                    </p>
+        
+                    <p>
+                        Click the white titles below to check out some of my work.
+                    </p>
+                </div>
+
+
+            </div>
+
+            
         </div>
 
-
+        <!--include a section for the list of projects-->
         <section class="projects">
+            <!--include a section heading-->
             <h2>Projects:</h2>
 
+            <!--include a list where each list item has a title link, date and a description-->
             <ul>
-                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174">Project 1: Jump Page Version 1</a>
-                    <p class="date">Sep. 20th</p>
+                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174" target = "_blank">Project 1: Jump Page Version 1</a>
+                    <p>Sep. 20th</p>
                     <p>For this project, I created the page you're currently on.  
                         My jump page had to be version controlled using Git and GitHub.  
                         I created a remote repository and pushed all my files to it.
@@ -42,26 +68,31 @@
             </ul>
         </section>
     
+        <!--include a section for the list of labs-->
         <section class="labs">
+
+            <!--include a section heading-->
             <h2>Labs:</h2>
+
+            <!--include a list where each list item has a title link, date and a description-->
     
             <ul>
-                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174/labs/lab0">Lab 0: Webpage from Static Comp</a>
-                    <p class="date">Aug. 29th</p>
+                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174/labs/lab0" target = "_blank">Lab 0: Webpage from Static Comp</a>
+                    <p>Aug. 29th</p>
                     <p>This lab required me to take a preexisting webpage for Bubacan Landscaping and recreate it.  
                         The goal was to get as close to the example layout as possible, 
                         and to refresh all the skills I had learned in my previous web design course.</p>
                 </li>
-                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174/labs/lab1">Lab 1: CSS Layout with Flexbox and Grid</a>
-                    <p class="date">Sep. 9th</p>
+                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174/labs/lab1" target = "_blank">Lab 1: CSS Layout with Flexbox and Grid</a>
+                    <p>Sep. 9th</p>
                     <p>Here, I was instructed to design a webpage using flexbox and CSS grid.  
                         The header had to have a logo and title beside each other with a nav bar below.  I used nested flexboxes to accomplish this.
                         The main portion of the page needed to have a 4 by 3 grid of images with the middle two cells containing text.
                         Our webpage also had to scale to different mobile widths.
                     </p>
                 </li>
-                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174/labs/lab2">Lab 2: CSS Transitions and Animation</a>
-                    <p class="date">Sep. 14th</p>
+                <li><a href="https://github.com/Life-Trekker/artdm174/tree/main/artdm174/labs/lab2" target = "_blank">Lab 2: CSS Transitions and Animation</a>
+                    <p>Sep. 14th</p>
                     <p>For this third lab, the goal was to practice using the transition and @keyframe properties.
                         I created a UI page transition that eased viewers into my webpage.
                         I also implemented transitions for when the links on the nav bar were hovered over.
