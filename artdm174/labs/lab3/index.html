@@ -1,0 +1,46 @@
+<!--
+Author: Josh T
+File Name: index.html for Lab 3
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+
+    <link rel="stylesheet" href="main.css">    
+</head>
+
+<body>
+
+    <main>
+
+        <!--create a heading-->
+        <h1>Cheddar Chaser</h1>
+
+        <!--create paragraphs to hold the mouse's location, the health of the cheese and the timer-->
+        <p id="mouseLocator">X:   Y: </p>
+        <p id="health"></p>
+        <p id="timer"></p>
+
+        <!--create images to hold the cheese and the mouse trap-->
+        <img id="cheese" src="images/cheese.png">
+        <img id="mouseTrap" src="images/mouse-trap.png">
+
+        <!--create paragraphs to hold the game result and the instructions-->
+        <p id="result"></p>
+        <p id="instructions">Your mouse is quite hungry.  Click the cheese to take a bite.  Don't run over the Mouse Trap.<br>Can you eat the entire cheese wedge before the time runs out?</p>
+
+        <!--create a button to begin the game-->
+        <button id="start">START</button>
+
+
+    </main>
+
+</body>
+</html>
+
+<!--include the JS in the main.js file-->
+<script src="main.js"></script>
