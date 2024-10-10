@@ -1,0 +1,97 @@
+/*
+Author: Josh T
+File Name: main.css for Project 2
+*/
+
+/* CSS Reset */
+body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*set the background of the page to the jungle pattern
+center the text and make it brown, 14pt Geneva by default
+*/
+body{
+    background-image: url("images/jungle.png");
+
+    text-align: center;
+    color: rgb(73, 38, 6);
+    font-family: Geneva, Verdana, sans-serif;
+    font-size: 14pt;
+}
+
+/*place the heading on a transparent white background
+and give it some padding
+*/
+h1{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2%;
+}
+
+
+/*by default, display the images as squares with brown borders
+give these some margin
+*/
+img{
+    display: block;
+    width: max(20vw, 300px);
+    height: max(20vw, 300px);
+
+    border: groove 20px rgb(73, 38, 6);
+
+    margin: 2% auto;
+}
+
+/*place the figcaption in a green box with rounded corners
+give it some padding and a margin
+*/
+figcaption{
+    background-color: rgb(55, 83, 55);
+    border-radius: 10px;
+    padding: max(1%, 10px);
+    margin: 10px 25%;
+}
+
+/*make the text in the buttons green, 20pt and bold
+give the buttons some margins and padding
+round the corners of the buttons and give them transparent white backgrounds
+without JS, hide the buttons
+*/
+button{
+    color: rgb(55, 83, 55);
+    font-size: 20pt;
+    font-weight: bold;
+
+    margin: 0 1%;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    display: none;
+}
+
+/*when an element gains the current class,
+have it play the easeIn animation
+*/
+.current{
+    animation: easeIn 1s ease;
+}
+
+@keyframes easeIn{
+    /*when the animation starts, blur the element and shift it to the right*/
+    0%{
+        filter: blur(8px);
+        transform: translateX(30px);
+    }
+
+    /*by the end of the animation, remove the blur and put it in the default place*/
+    100%{
+        filter: blur(0px);
+        transform: translateX(0px);
+    }
+
+}
+
+
