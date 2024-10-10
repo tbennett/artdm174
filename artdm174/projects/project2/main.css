@@ -114,7 +114,7 @@ p{
 /*place the figcaption in a green box with rounded corners
 give it some padding and a margin
 */
-figcaption{
+#caption{
     background-color: rgb(55, 83, 55);
     border-radius: 10px;
     padding: max(1%, 10px);
