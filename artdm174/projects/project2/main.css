@@ -22,11 +22,14 @@ body{
     font-size: 14pt;
 }
 
-/*place the heading on a transparent white background
-and give it some padding
+/*place the heading on a mint background
+give it some padding and change it to 32pt italic text
 */
 h1{
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(180, 216, 180);
+    font-style: italic;
+    font-size: 32pt;
+
     padding: 2%;
 }
 
@@ -63,6 +66,23 @@ nav li a{
 
 }
 
+/*when the nav list items are hovered over, transition them to a dark green background color*/
+nav li:hover{
+    background-color: rgb(55, 83, 55);
+    
+    transition: all 0.5s ease;
+}
+
+/*set the text of the sub heading to 28pt mint font
+when JS is disabled, it will span two columns
+*/
+h2{
+    color: rgb(180, 216, 180);
+    font-size: 28pt;
+    padding: 2%;
+
+
+}
 
 
 /*by default, display the images as squares with brown borders
@@ -88,32 +108,57 @@ figcaption{
     margin: 10px 25%;
 }
 
-/*make the text in the buttons green, 20pt and bold
-give the buttons some margins and padding
-round the corners of the buttons and give them transparent white backgrounds
-without JS, hide the buttons
+/*give all te buttons some margin
+and hide them when JS is disabled
+make the text within them green and give them green borders
+make the text in them bold
 */
 button{
     color: rgb(55, 83, 55);
-    font-size: 20pt;
+    border: rgb(55, 83, 55) outset 5px;
+
     font-weight: bold;
 
-    margin: 0 1%;
-    padding: 1%;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
+    margin: 1em;
 
     display: none;
+}
+
+/*make the text in the back and next buttons 20pt font
+give the buttons some padding
+round the corners of the buttons and give them transparent white backgrounds
+*/
+.controls button{
+    font-size: 20pt;
+    padding: 1%;
+
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: rgb(55, 83, 55) outset 5px;
+
+}
+
+/*make the text in the gallery change buttons 20pt font
+give the buttons a tiny bit of padding
+round the corners of the buttons and give them mint backgrounds
+*/
+.galleryControls button{
+
+    font-size: 16pt;
+    padding: 0.5%;
+
+    border-radius: 10px;
+    background-color: rgb(180, 216, 180);
 }
 
 /*when an element gains the current class,
 have it play the easeIn animation
 */
 .current{
-    animation: easeIn 1s ease;
+    animation: easeInRight 1s ease;
 }
 
-@keyframes easeIn{
+@keyframes easeInRight{
     /*when the animation starts, blur the element and shift it to the right*/
     0%{
         filter: blur(8px);
@@ -127,5 +172,3 @@ have it play the easeIn animation
     }
 
 }
-
-
