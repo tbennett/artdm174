@@ -199,6 +199,15 @@ function changeSlide(e) {
     nextSlide.setAttribute("class", "current");
     nextSlide.style.display = "block";
 
+    //get the caption
+    const caption = document.getElementById("caption");
+
+    //update the caption
+    caption.innerHTML = nextSlide.alt;
+
+    //reset the timer
+    clearInterval(timer);
+    timer = window.setInterval(changeSlide, 5000);
 
   }
 

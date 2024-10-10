@@ -151,14 +151,20 @@ round the corners of the buttons and give them mint backgrounds
     background-color: rgb(180, 216, 180);
 }
 
+/*whenever a button element is pressed, play an animation
+*/
+button:active{
+    animation: pressed 1s ease;
+}
+
 /*when an element gains the current class,
 have it play the easeIn animation
 */
 .current{
-    animation: easeInRight 1s ease;
+    animation: easeIn 1s ease;
 }
 
-@keyframes easeInRight{
+@keyframes easeIn{
     /*when the animation starts, blur the element and shift it to the right*/
     0%{
         filter: blur(8px);
@@ -169,6 +175,21 @@ have it play the easeIn animation
     100%{
         filter: blur(0px);
         transform: translateX(0px);
+    }
+
+}
+
+@keyframes pressed{
+    /*when the animation starts, shrink the element and give it an inset border*/
+    0%{
+        transform: scale(90%);
+        border-style: inset;
+    }
+
+    /*when the animation ends, set the element to a normal size and give it an outset border*/
+    100%{
+        transform: scale(100%);
+        border-style: outset;
     }
 
 }
