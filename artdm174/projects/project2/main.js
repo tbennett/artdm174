@@ -135,6 +135,19 @@ function changeSlide(e) {
   
     //set the class of this element to current
     nextUp.setAttribute("class", "current");
+
+    //if this function was called using the next button or the automatic timer,
+    if(!e || e.target.getAttribute("class") === "nextBtn")
+    {
+      //have it transition from the right
+      nextUp.style.animation = "easeInRight 1s ease";
+    }
+    //otherwise,
+    else
+    {
+      //have it transition from the left
+      nextUp.style.animation = "easeInLeft 1s ease";
+    }
   
     //update the caption
     caption.innerHTML = nextUp.alt;
@@ -195,9 +208,10 @@ function changeSlide(e) {
     //get the first slide of the new gallery
     let nextSlide = nextFrame.querySelector("img");
 
-    //set it's class to current and make it visible
+    //set it's class to current, make it visible and have it transition from the right
     nextSlide.setAttribute("class", "current");
     nextSlide.style.display = "block";
+    nextSlide.style.animation = "easeInRight 1s ease";
 
     //get the caption
     const caption = document.getElementById("caption");

@@ -174,14 +174,29 @@ button:active{
 have it play the easeIn animation
 */
 .current{
-    animation: easeIn 1s ease;
+    animation: easeInRight 1s ease;
 }
 
-@keyframes easeIn{
+@keyframes easeInRight{
     /*when the animation starts, blur the element and shift it to the right*/
     0%{
         filter: blur(8px);
         transform: translateX(30px);
+    }
+
+    /*by the end of the animation, remove the blur and put it in the default place*/
+    100%{
+        filter: blur(0px);
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes easeInLeft{
+    /*when the animation starts, blur the element and shift it to the right*/
+    0%{
+        filter: blur(8px);
+        transform: translateX(-30px);
     }
 
     /*by the end of the animation, remove the blur and put it in the default place*/
