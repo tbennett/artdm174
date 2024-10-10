@@ -81,7 +81,7 @@ h2{
     font-size: 28pt;
     padding: 2%;
 
-
+    grid-column: span 2;
 }
 
 
@@ -96,6 +96,19 @@ img{
     border: groove 20px rgb(73, 38, 6);
 
     margin: 2% auto;
+}
+
+/*when JS is disabled, display the slides in a 2 column layout*/
+figure{
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.2fr 0.2fr repeat(5, 1fr);
+}
+
+/*when JS is disabled, make the time paragraphs centered in the grid*/
+p{
+    grid-column: span 2;
 }
 
 /*place the figcaption in a green box with rounded corners
