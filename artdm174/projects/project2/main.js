@@ -53,12 +53,11 @@ function init()
   //show the first slide
   allSlides[0].style.display = "block";
 
+  //set the caption to the first slide's caption
+  caption.innerHTML = allSlides[0].alt;
 
   //give this first slide a class of current so that the change slide function can execute
   allSlides[0].setAttribute("class", "current");
-
-  //set the caption to the first slide's caption
-  caption.innerHTML = allSlides[0].alt;
     
   //have the slides automatically advance every 5 seconds
   timer = window.setInterval(changeSlide, 5000);

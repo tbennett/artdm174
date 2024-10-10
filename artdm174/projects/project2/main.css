@@ -30,6 +30,40 @@ h1{
     padding: 2%;
 }
 
+/*remove the bullet points from the list of nav links.  
+place those links in a flex box and space them evenly
+give that nav bar a brown background
+*/
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+
+    background-color: rgb(73, 38, 6);
+
+}
+
+/*give all the nav links a small amount of padding.  
+display them as inline blocks
+*/
+nav li {
+    display: inline-block;
+
+    padding: 1em 0.5em;
+
+}
+
+/*remove the text decoration from the links and make them mint*/
+nav li a{
+    text-decoration: none;
+    color: rgb(180, 216, 180);
+    background-color: none;
+
+    text-align: center;
+
+}
+
+
 
 /*by default, display the images as squares with brown borders
 give these some margin
