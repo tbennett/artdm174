@@ -39,9 +39,13 @@ function init()
   }
 
   //with JS active, hide all the galleries
-  for(i = 0; i < allFrames.length; i++)
+  //I wasn't sure if we had to use a forEach loop, so I revised this section of code
+  allFrames.forEach(hide);
+    
+  //a function that hides a node by change its display value
+  function hide(node)
   {
-      allFrames[i].style.display = "none";
+    node.style.display = "none";
   }
 
   //show the first gallery
@@ -82,7 +86,7 @@ function init()
   
 }  // end init
   
-//this function changes the current slide, shifting the carousel forward
+//this function changes the current slide, shifting the carousel forward or backwards
 function changeSlide(e) {
   
     //get the current gallery containing all the images, the images themselves and the figcaption
