@@ -60,7 +60,7 @@ nav li {
 nav li a{
     text-decoration: none;
     color: rgb(180, 216, 180);
-    background-color: none;
+
 
     text-align: center;
 
@@ -210,13 +210,13 @@ have it play the easeIn animation
 @keyframes pressed{
     /*when the animation starts, shrink the element and give it an inset border*/
     0%{
-        transform: scale(90%);
+        scale: 90%;
         border-style: inset;
     }
 
     /*when the animation ends, set the element to a normal size and give it an outset border*/
     100%{
-        transform: scale(100%);
+        scale: 100%;
         border-style: outset;
     }
 
