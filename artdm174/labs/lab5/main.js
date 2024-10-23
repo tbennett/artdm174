@@ -4,8 +4,20 @@ function init()
     const playBtn = document.getElementById("start");
     playBtn.addEventListener("click", (e) => { player.playVideo() } );
 
-    const pauseBtn = document.getElementById("stop");
+    const pauseBtn = document.getElementById("pause");
     pauseBtn.addEventListener("click", (e) => { player.pauseVideo() } );
+
+    const stopBtn = document.getElementById("stop");
+    stopBtn.addEventListener("click", (e) => { player.stopVideo() } );
+
+    const ffBtn = document.getElementById("fast-forward");
+    ffBtn.addEventListener("click", (e) => { player.setPlaybackRate(2) });
+
+    const normalBtn = document.getElementById("normal-speed");
+    normalBtn.addEventListener("click", (e) => { player.setPlaybackRate(1) });
+
+    const slowBtn = document.getElementById("slow-motion");
+    slowBtn.addEventListener("click", (e) => { player.setPlaybackRate(0.5) });
 }
 
 
@@ -24,7 +36,7 @@ function init()
         player = new YT.Player('player', {
           height: '390',
           width: '640',
-          videoId: 'M7lc1UVf-VE',
+          videoId: 'nFiNJ07cgnA',
           playerVars: {
             'playsinline': 1
           },
