@@ -19,12 +19,14 @@ function init()
     const slowBtn = document.getElementById("slow-motion");
     slowBtn.addEventListener("click", (e) => { player.setPlaybackRate(0.5) });
 
+    const captionBtn = document.getElementById("caption");
+
+
     const skipBtns = document.getElementById("skip-to-controls");
     let skipTimes = [52, 435, 1279, 2135];
 
     for(let i = 1; i < skipBtns.children.length; i++)
     {
-        console.log(skipBtns.children[i]);
        skipBtns.children[i].addEventListener("click", (e) => {  player.seekTo(skipTimes[i - 1], true); player.playVideo();});
     }
 
@@ -79,6 +81,5 @@ function init()
 
 
 
-
-        //call the init function once the DOM loads
+  //call the init function once the DOM loads
   document.addEventListener('DOMContentLoaded', init);
