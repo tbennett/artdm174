@@ -18,6 +18,17 @@ function init()
 
     const slowBtn = document.getElementById("slow-motion");
     slowBtn.addEventListener("click", (e) => { player.setPlaybackRate(0.5) });
+
+    const skipBtns = document.getElementById("skip-to-controls");
+    let skipTimes = [52, 435, 1279, 2135];
+
+    for(let i = 1; i < skipBtns.children.length; i++)
+    {
+        console.log(skipBtns.children[i]);
+       skipBtns.children[i].addEventListener("click", (e) => {  player.seekTo(skipTimes[i - 1], true); player.playVideo();});
+    }
+
+
 }
 
 
@@ -64,10 +75,6 @@ function init()
           setTimeout(stopVideo, 6000);
           done = true;
         }
-      }
-
-      function stopVideo() {
-        player.stopVideo();
       }
 
 
