@@ -10,6 +10,7 @@ body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, fi
     border: 0;
 }
 
+
 body{
 
     text-align: center;
@@ -22,6 +23,8 @@ body{
 main{
     display: flex;
     flex-direction: column;
+
+    margin: auto;
 }
 
 div{
@@ -30,9 +33,9 @@ div{
 
 
 
-#audio-section
+#audio-section, #video-section
 {
-    margin: 2% 20%;
+    margin: 2%;
     padding: 2%;
     background-color: rgb(136, 201, 222);
     border-radius: 20px;
@@ -40,10 +43,9 @@ div{
 
 #video-section
 {
-    margin: 2% 20%;
-    padding: 2%;
+
     background-color: rgb(136, 173, 222);
-    border-radius: 20px;
+
 }
 
 video, audio{
@@ -51,6 +53,7 @@ video, audio{
 
     max-width: 50vmin;
 }
+
 .icons{
 
     height: 10vmin;
@@ -76,5 +79,18 @@ h3
 {
     margin: max(2%, 10px) 10%;
     border-radius: 50px;
-    font-size: 2.8vmin;
+    font-size: 3vmin;
+}
+
+
+@media only screen and (min-width : 700px) {
+
+    video, audio{
+        max-width: 40vmin;
+    }
+
+    main{
+        flex-direction: row;
+    }
+
 }

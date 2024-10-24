@@ -62,10 +62,38 @@ function init()
 
 
     const hippoBtn = document.getElementById("hippo-option");
-    hippoBtn.addEventListener("click", () => { player.src = "hippos.mp4"; player.load(); skipTimes[1] = 84; });
+    hippoBtn.addEventListener("click", () => { 
+        
+        player.src = "hippos.mp4"; 
+        player.load(); 
+        skipTimes[1] = player.duration; 
+
+        for (let i = 0; i < player.textTracks.length; i++) {
+            
+            player.textTracks[i].mode = 'hidden';
+            player.textTracks[i].selected = false;
+        }
+
+        player.textTracks[0].selected = true;
+        player.textTracks[0].mode = 'showing';
+    });
 
     const cookingBtn = document.getElementById("cooking-option");
-    cookingBtn.addEventListener("click", () => { player.src = "cookingVideo.mp4"; player.load(); skipTimes[1] = 14; });
+    cookingBtn.addEventListener("click", () => { 
+        
+        player.src = "cookingVideo.mp4"; 
+        player.load(); 
+        skipTimes[1] = player.duration; 
+
+        for (let i = 0; i < player.textTracks.length; i++) {
+
+            player.textTracks[i].mode = 'hidden';
+            player.textTracks[i].selected = false;
+        }
+        
+        player.textTracks[1].selected = true;
+        player.textTracks[1].mode = 'showing';
+    });
 
 
 
