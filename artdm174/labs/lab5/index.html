@@ -12,6 +12,8 @@ File Name: index.html for lab 5
 
         <script src="main.js" defer></script>
 
+        <link rel="icon" href="images/higherVolume.png" type="image/jpg">
+
     </head>
 
     <body>
@@ -19,71 +21,123 @@ File Name: index.html for lab 5
 
         <main>
 
-            <h1>Video</h1>
+            <div id="audio-section">
+                <h1>Audio</h1>
 
+                <audio id="audio" controls>
+                    <source src="Countermove.mp3" type="audio/mp3">
 
-            <video id="player" controls>
+                    <h3>Unable to Play Audio</h3>
+                    <a href="Countermove.mp3">Here's a link to the media.</a>
 
-                <source src="hippos.mp4" type="video/mp4">
-                <source src="hippos.mov" type="video/mov">
+                </audio>
 
-                <track id="en" kind="captions" label="English (captions) for Hippo video" srclang="en" src="captions/hippoCaption.vtt" default>
-                <track id="en" kind="captions" label="English (captions) for cooking video" srclang="en" src="captions/captions.vtt" default>
+                <div id="audio-controls">
 
-                <h3>Unable to Play Video</h3>
-                <a href="hippos.mp4">Here's a link to the media</a>
-                    
-            </video>
+                    <img class="icons" id="aStart" src="images/playButton.png">
 
+                    <img class="icons" id="aPause" src="images/pauseButton.png">
 
-            <div id="controls">
+                    <img class="icons" id="aStop" src="images/stopButton.png">
 
-                <img class="icons" id="start" src="images/playButton.png">
+                    <div id="audio-sound-controls">
+                        <h3>Volume Controls</h3>
 
-                <img class="icons" id="pause" src="images/pauseButton.png">
+                        <img class="icons" id="aMute" src="images/muteButton.png">
 
-                <img class="icons" id="stop" src="images/stopButton.png">
+                        <img class="icons" id="aSofter" src="images/lowerVolume.png">
+        
+                        <img class="icons" id="aLouder" src="images/higherVolume.png">
 
-                <div id="sound-controls">
-                    <h3>Volume Controls</h3>
+                    </div>
 
-                    <img class="icons" id="mute" src="images/muteButton.png">
+                    <div>
 
-                    <img class="icons" id="softer" src="images/lowerVolume.png">
-    
-                    <img class="icons" id="louder" src="images/higherVolume.png">
+                        <h3>Playback Speed Options</h3>
 
-                </div>
+                        <select id="audio-speed-controls">
+                            <option>Select a Playback Speed</option>
+                            <option id="aSlow-motion">0.25X SPEED</option>
+                            <option id="aSlower-speed">0.5X SPEED</option>
+                            <option id="aNormal-speed">1X SPEED</option>
+                            <option id="aFaster-speed">1.5X SPEED</option>
+                            <option id="aFast-forward">2X SPEED</option>
+                        </select>
 
-                <div id="skip-spots">
-                    <h3>Select a Spot to Skip to</h3>
-                    <button>BEGINNING</button>
-                    <button>END</button>
+                       
+                    </div>
 
-                </div>
-
-                <div>
-
-                    <h3>Playback Speed and Video Options</h3>
-
-                    <select id="speed-controls">
-                        <option>Select a Playback Speed</option>
-                        <option id="slow-motion">0.25X SPEED</option>
-                        <option id="slower-speed">0.5X SPEED</option>
-                        <option id="normal-speed">1X SPEED</option>
-                        <option id="faster-speed">1.5X SPEED</option>
-                        <option id="fast-forward">2X SPEED</option>
-                    </select>
-
-                    <select id="video-options">
-                        <option>Select a Video to Play</option>
-                        <option id="hippo-option">HIPPOS AT THE ZOO</option>
-                        <option id="cooking-option">COOKING</option>
-                    </select>
                 </div>
 
             </div>
 
+            <div id="video-section">
+
+                <h1>Video</h1>
+
+
+                <video id="player" controls>
+
+                    <source src="hippos.mp4" type="video/mp4">
+                    <source src="hippos.mov" type="video/mov">
+
+                    <track id="en" kind="captions" label="English (captions) for Hippo video" srclang="en" src="captions/hippoCaption.vtt" default>
+                    <track id="en" kind="captions" label="English (captions) for cooking video" srclang="en" src="captions/captions.vtt" default>
+
+                    <h3>Unable to Play Video</h3>
+                    <a href="hippos.mp4">Here's a link to the media.</a>
+                        
+                </video>
+
+
+                <div id="video-controls">
+
+                    <img class="icons" id="vStart" src="images/playButton.png">
+
+                    <img class="icons" id="vPause" src="images/pauseButton.png">
+
+                    <img class="icons" id="vStop" src="images/stopButton.png">
+
+                    <div id="sound-controls">
+                        <h3>Volume Controls</h3>
+
+                        <img class="icons" id="vMute" src="images/muteButton.png">
+
+                        <img class="icons" id="vSofter" src="images/lowerVolume.png">
+        
+                        <img class="icons" id="vLouder" src="images/higherVolume.png">
+
+                    </div>
+
+                    <div id="skip-spots">
+                        <h3>Select a Spot to Skip to</h3>
+                        <button>BEGINNING</button>
+                        <button>END</button>
+
+                    </div>
+
+                    <div>
+
+                        <h3>Playback Speed and Video Options</h3>
+
+                        <select id="video-speed-controls">
+                            <option>Select a Playback Speed</option>
+                            <option id="vSlow-motion">0.25X SPEED</option>
+                            <option id="vSlower-speed">0.5X SPEED</option>
+                            <option id="vNormal-speed">1X SPEED</option>
+                            <option id="vFaster-speed">1.5X SPEED</option>
+                            <option id="vFast-forward">2X SPEED</option>
+                        </select>
+
+                        <select id="video-options">
+                            <option>Select a Video to Play</option>
+                            <option id="hippo-option">HIPPOS AT THE ZOO</option>
+                            <option id="cooking-option">COOKING</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
             
         </main>
 
