@@ -19,14 +19,12 @@ File Name: index.html for lab 5
 
             <h1>Video</h1>
 
-            <div id="player"></div>
+            <video id="player" controls>
 
-            <track  label="English"
-                kind="subtitles"
-                srclang="en"
-                src="captions/cap-en.vtt"
-                default />
-
+                <source src="cookingVideo.mp4" type="video/mp4">
+                <track id="en" kind="captions" label="English (captions)" srclang="en" src="captions/captions.vtt" default>
+                
+            </video>
 
             <div id="controls">
 
@@ -43,23 +41,7 @@ File Name: index.html for lab 5
 
                 <button id="fast-forward">2X SPEED</button>
 
-                <button id="captions">CC</button>
-
-                <div id="skip-to-controls">
-                    <h3>Skip to:</h3>
-
-                    <button id="setup">SET UP</button>
-
-                    <button id="town">ACTIONS IN TOWN</button>
-
-                    <button id="adventuring">ADVENTURE ACTION</button>
-
-                    <button id="scoring">SCORING</button>
-
-                </div>
-
             </div>
-
 
             
         </main>
