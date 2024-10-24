@@ -19,27 +19,44 @@ File Name: index.html for lab 5
 
             <h1>Video</h1>
 
+
             <video id="player" controls>
 
                 <source src="cookingVideo.mp4" type="video/mp4">
                 <track id="en" kind="captions" label="English (captions)" srclang="en" src="captions/captions.vtt" default>
-                
+                    
             </video>
+
 
             <div id="controls">
 
-                <button id="start">PLAY</button>
+                <img class="icons" id="start" src="images/playButton.png">
 
-                <button id="pause">PAUSE</button>
+                <img class="icons" id="pause" src="images/pauseButton.png">
 
-                <button id="stop">STOP</button>
+                <img class="icons" id="stop" src="images/stopButton.png">
 
-                
-                <button id="slow-motion">0.5X SPEED</button>
+                <div id="sound-controls">
+                    <h3>Volume Controls</h3>
 
-                <button id="normal-speed">1X SPEED</button>
+                    <img class="icons" id="mute" src="images/muteButton.png">
 
-                <button id="fast-forward">2X SPEED</button>
+                    <img class="icons" id="softer" src="images/lowerVolume.png">
+    
+                    <img class="icons" id="louder" src="images/higherVolume.png">
+
+                </div>
+
+
+
+                <select id="speed-controls">
+                    <option>Select a Playback Speed</option>
+                    <option id="slow-motion">0.25X SPEED</option>
+                    <option id="slower-speed">0.5X SPEED</option>
+                    <option id="normal-speed">1X SPEED</option>
+                    <option id="faster-speed">1.5X SPEED</option>
+                    <option id="fast-forward">2X SPEED</option>
+                </select>
 
             </div>
 

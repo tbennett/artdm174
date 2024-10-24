@@ -1,0 +1,35 @@
+/*
+Author: Josh T
+File Name: main.css for Lab 0
+*/
+
+/* CSS Reset */
+body, header, nav, main, footer, img, h1, h2, h3, ul, section, aside, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+
+    text-align: center;
+    background-color: rgb(228, 239, 245);
+}
+
+div{
+    margin: 2%;
+}
+
+video{
+    border: 5px solid rgb(6, 6, 46);
+}
+.icons{
+
+    height: 100px;
+}
+
+button{
+
+    border: none;
+    margin: 2%;
+}
