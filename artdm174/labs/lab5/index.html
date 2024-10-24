@@ -22,8 +22,13 @@ File Name: index.html for lab 5
 
             <video id="player" controls>
 
-                <source src="cookingVideo.mp4" type="video/mp4">
-                <track id="en" kind="captions" label="English (captions)" srclang="en" src="captions/captions.vtt" default>
+                <source src="hippos.mp4" type="video/mp4">
+                <source src="hippos.mov" type="video/mov">
+
+                <track id="en" kind="captions" label="English (captions)" srclang="en" src="captions/hippCaption.vtt" default>
+
+                <h3>Unable to Play Video</h3>
+                <a href="hippos.mp4">Here's a link to the media</a>
                     
             </video>
 
@@ -56,6 +61,19 @@ File Name: index.html for lab 5
                     <option id="normal-speed">1X SPEED</option>
                     <option id="faster-speed">1.5X SPEED</option>
                     <option id="fast-forward">2X SPEED</option>
+                </select>
+
+                <div id="skip-spots">
+                    <h3>Select a Spot to Skip to</h3>
+                    <button>BEGINNING</button>
+                    <button>END</button>
+
+                </div>
+
+                <select id="video-options">
+                    <option>Select a Video to Play</option>
+                    <option id="hippo-option">HIPPOS AT THE ZOO</option>
+                    <option id="cooking-option">COOKING</option>
                 </select>
 
             </div>

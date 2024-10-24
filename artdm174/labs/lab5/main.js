@@ -51,6 +51,22 @@ function init()
     slowBtn.addEventListener("click", (e) => { player.playbackRate = 0.25 });
 
 
+    const skipTimes = [0, 84];
+    const skipSpots = document.getElementById("skip-spots");
+
+    for(let i = 1; i < skipSpots.children.length; i++)
+    {
+        skipSpots.children[i].addEventListener("click", (e) => { player.currentTime = skipTimes[i - 1] })
+    }
+
+
+    const hippoBtn = document.getElementById("hippo-option");
+    hippoBtn.addEventListener("click", (e) => { player.src = "hippos.mp4"; player.load(); });
+
+    const cookingBtn = document.getElementById("cooking-option");
+    cookingBtn.addEventListener("click", (e) => { player.src = "cookingVideo.mp4"; player.load(); });
+
+
 }
 
 
