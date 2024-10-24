@@ -14,6 +14,9 @@ body{
 
     text-align: center;
     background-color: rgb(228, 239, 245);
+    color: rgb(10, 10, 61);
+
+    font-family: Verdana, sans-serif;
 }
 
 div{
@@ -33,4 +36,14 @@ button{
 
     border: none;
     margin: 2%;
+}
+
+h3, #speed-controls, #video-options
+{
+    background-color: rgb(106, 106, 147);
+}
+
+h3
+{
+    margin: 2% 30%;
 }

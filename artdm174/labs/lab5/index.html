@@ -9,7 +9,9 @@ File Name: index.html for lab 5
         <title>Media Player</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="main.css">
-        <script src="main.js"></script>
+
+        <script src="main.js" defer></script>
+
     </head>
 
     <body>
@@ -53,17 +55,6 @@ File Name: index.html for lab 5
 
                 </div>
 
-
-
-                <select id="speed-controls">
-                    <option>Select a Playback Speed</option>
-                    <option id="slow-motion">0.25X SPEED</option>
-                    <option id="slower-speed">0.5X SPEED</option>
-                    <option id="normal-speed">1X SPEED</option>
-                    <option id="faster-speed">1.5X SPEED</option>
-                    <option id="fast-forward">2X SPEED</option>
-                </select>
-
                 <div id="skip-spots">
                     <h3>Select a Spot to Skip to</h3>
                     <button>BEGINNING</button>
@@ -71,11 +62,25 @@ File Name: index.html for lab 5
 
                 </div>
 
-                <select id="video-options">
-                    <option>Select a Video to Play</option>
-                    <option id="hippo-option">HIPPOS AT THE ZOO</option>
-                    <option id="cooking-option">COOKING</option>
-                </select>
+                <div>
+
+                    <h3>Playback Speed and Video Options</h3>
+
+                    <select id="speed-controls">
+                        <option>Select a Playback Speed</option>
+                        <option id="slow-motion">0.25X SPEED</option>
+                        <option id="slower-speed">0.5X SPEED</option>
+                        <option id="normal-speed">1X SPEED</option>
+                        <option id="faster-speed">1.5X SPEED</option>
+                        <option id="fast-forward">2X SPEED</option>
+                    </select>
+
+                    <select id="video-options">
+                        <option>Select a Video to Play</option>
+                        <option id="hippo-option">HIPPOS AT THE ZOO</option>
+                        <option id="cooking-option">COOKING</option>
+                    </select>
+                </div>
 
             </div>
 
