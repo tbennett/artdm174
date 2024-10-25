@@ -6,12 +6,16 @@ File Name: index.html for lab 5
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Media Player</title>
+        <title>Media Players</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!--include the CSS in the main.css file-->
         <link rel="stylesheet" href="main.css">
 
+        <!--include the JS in the main.js file-->
         <script src="main.js" defer></script>
 
+        <!--include a fabicon-->
         <link rel="icon" href="images/higherVolume.png" type="image/jpg">
 
     </head>
@@ -21,25 +25,35 @@ File Name: index.html for lab 5
 
         <main>
 
+            <!--create a section for the audio player and its controls-->
             <div id="audio-section">
+
+                <!-- give it a heading -->
                 <h1>Audio</h1>
 
+                <!-- create an audio player -->
                 <audio id="audio" controls>
-                    <source src="Countermove.mp3" type="audio/mp3">
 
+                    <!-- it should play the Countermove.mp3 file -->
+                    <source src="media/Countermove.mp3" type="audio/mp3">
+
+                    <!-- if the audio is unable to play, provide a link -->
                     <h3>Unable to Play Audio</h3>
-                    <a href="Countermove.mp3">Here's a link to the media.</a>
+                    <a href="media/Countermove.mp3">Here's a link to the media.</a>
 
                 </audio>
 
+                <!-- create a div to hold the audio controls -->
                 <div id="audio-controls">
 
+                    <!-- create  play, pause and stop buttons -->
                     <img class="icons" id="aStart" src="images/playButton.png">
 
                     <img class="icons" id="aPause" src="images/pauseButton.png">
 
                     <img class="icons" id="aStop" src="images/stopButton.png">
 
+                    <!-- create mute, decrease volume and increase volume buttons -->
                     <div id="audio-sound-controls">
                         <h3>Volume Controls</h3>
 
@@ -51,6 +65,7 @@ File Name: index.html for lab 5
 
                     </div>
 
+                    <!-- create a select dropdown for changing the playback speed -->
                     <div>
 
                         <h3>Playback Speed Options</h3>
@@ -71,33 +86,41 @@ File Name: index.html for lab 5
 
             </div>
 
+
+            <!-- create a section for the video player and its controls -->
             <div id="video-section">
 
+                <!-- give it a heading -->
                 <h1>Video</h1>
 
-
+                <!-- create a video player -->
                 <video id="player" controls>
 
-                    <source src="hippos.mp4" type="video/mp4">
-                    <source src="hippos.mov" type="video/mov">
+                    <!-- it should start by playing the hippo video found in hippos.mp4 -->
+                    <source src="media/hippos.mp4" type="video/mp4">
+                    <source src="media/hippos.mov" type="video/mov">
 
+                    <!-- add caption tracks for the hippo video and for the cooking video -->
                     <track id="en" kind="captions" label="English (captions) for Hippo video" srclang="en" src="captions/hippoCaption.vtt" default>
                     <track id="en" kind="captions" label="English (captions) for cooking video" srclang="en" src="captions/captions.vtt" default>
 
+                    <!-- if the video can't display, provide a link to the file -->
                     <h3>Unable to Play Video</h3>
-                    <a href="hippos.mp4">Here's a link to the media.</a>
+                    <a href="media/hippos.mp4">Here's a link to the media.</a>
                         
                 </video>
 
-
+                <!-- create a div to hold all the video controls -->
                 <div id="video-controls">
 
+                    <!-- create play, pause and stop buttons -->
                     <img class="icons" id="vStart" src="images/playButton.png">
 
                     <img class="icons" id="vPause" src="images/pauseButton.png">
 
                     <img class="icons" id="vStop" src="images/stopButton.png">
 
+                    <!-- create mute, decrease volume and increase volume buttons -->
                     <div id="sound-controls">
                         <h3>Volume Controls</h3>
 
@@ -109,15 +132,18 @@ File Name: index.html for lab 5
 
                     </div>
 
+                    <!-- create buttons for skipping to different places in the video -->
                     <div id="skip-spots">
                         <h3>Select a Spot to Skip to</h3>
                         <button>BEGINNING</button>
+                        <button>EXACT MIDDLE</button>
                         <button>END</button>
 
                     </div>
 
-                    <div>
 
+                    <div>
+                        <!-- create a select drop down for changing the playback speed-->
                         <h3>Playback Speed and Video Options</h3>
 
                         <select id="video-speed-controls">
@@ -129,6 +155,7 @@ File Name: index.html for lab 5
                             <option id="vFast-forward">2X SPEED</option>
                         </select>
 
+                        <!-- create a select drop down for choosing which video to play -->
                         <select id="video-options">
                             <option>Select a Video to Play</option>
                             <option id="hippo-option">HIPPOS AT THE ZOO</option>
