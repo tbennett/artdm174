@@ -118,19 +118,53 @@ function init()
     {
             console.log("Time is currently " + currentTime);
 
-            if(currentTime === 109)
+            if(currentTime < 59)
+            {
+                flipToPage(1);
+            }
+            else if(currentTime >= 59 && currentTime < 331)
+            {
+                flipToPage(2);
+            }
+            else if(currentTime >= 331 && currentTime < 522)
             {
                 flipToPage(3);
             }
-            else if(currentTime === 587)
+            else if(currentTime >= 522 && currentTime < 545)
+            {
+                flipToPage(2);
+            }
+            else if(currentTime >= 545 && currentTime < 607)
+            {
+                flipToPage(3);
+            }
+            else if(currentTime >= 607  && currentTime < 669)
             {
                 flipToPage(4);
+            }
+            else if(currentTime >= 669 && currentTime < 710)
+            {
+                flipToPage(5);
+            }
+            else if(currentTime >= 710  && currentTime < 754)
+            {
+                flipToPage(4);
+            }
+            else if(currentTime >= 754 && currentTime < 763)
+            {
+                flipToPage(5);
+            }
+            else if(currentTime >= 763 && currentTime < 779)
+            {
+                flipToPage(4);
+            }
+            else if(currentTime >= 779)
+            {
+                    flipToPage(1);
             }
     }
 
       let currentPageSet = 1;
-
-
 
 
       function flipToPage(newPageSet) 
