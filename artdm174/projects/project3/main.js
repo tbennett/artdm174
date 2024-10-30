@@ -6,46 +6,33 @@ File Name: index.html for Project 3
 
 function init()
 {
+
+
     const playBtn = document.getElementById("start");
-    playBtn.addEventListener("click", (e) => { player.playVideo() } );
+    playBtn.addEventListener("click", () => { player.playVideo() } );
 
     const pauseBtn = document.getElementById("pause");
-    pauseBtn.addEventListener("click", (e) => { player.pauseVideo() } );
+    pauseBtn.addEventListener("click", () => { player.pauseVideo() } );
 
     const stopBtn = document.getElementById("stop");
-    stopBtn.addEventListener("click", (e) => { player.stopVideo() } );
+    stopBtn.addEventListener("click", () => { player.stopVideo() } );
 
     const ffBtn = document.getElementById("fast-forward");
-    ffBtn.addEventListener("click", (e) => { player.setPlaybackRate(2) });
+    ffBtn.addEventListener("click", () => { player.setPlaybackRate(2) });
 
     const normalBtn = document.getElementById("normal-speed");
-    normalBtn.addEventListener("click", (e) => { player.setPlaybackRate(1) });
+    normalBtn.addEventListener("click", () => { player.setPlaybackRate(1) });
 
     const slowBtn = document.getElementById("slow-motion");
-    slowBtn.addEventListener("click", (e) => { player.setPlaybackRate(0.5) });
+    slowBtn.addEventListener("click", () => { player.setPlaybackRate(0.5) });
 
-    const book = document.getElementById("book");
-    const leftPage = document.getElementById("leftPage");
-    const rightPage = document.getElementById("rightPage");
-    const flipPage = document.getElementById("flipPage");
+   
+    const pageNextBtn = document.getElementById("flipNext");
+    pageNextBtn.addEventListener("click", () => { flipToPage(currentPageSet + 1); } );
 
-    console.log(book.style.width);
+    const pagePrevBtn = document.getElementById("flipPrev");
+    pagePrevBtn.addEventListener("click", () => { flipToPage(currentPageSet - 1); } );
 
-    flipPage.style.right = -1 * (Number)(book.style.width) / 2;
-
-    const pageSources = ["images/rulebookPages/page2.jpeg", "images/rulebookPages/page3.jpeg", "images/rulebookPages/page4.jpeg", "images/rulebookPages/page5.jpeg"];
-
-    const pageChangeBtn = document.getElementById("flip");
-    pageChangeBtn.addEventListener("click", flipToPage(4) );
-
-    function flipToPage(pageNumber) {
-
-        flipPage.style.display = "block";
-        flipPage.style.animation = "flip 0.8s ease";
-
-
-
-    }
 
 
     const skipBtns = document.getElementById("skip-to-controls");
@@ -59,7 +46,8 @@ function init()
 
 }
 
-
+        //call the init function once the DOM loads
+        document.addEventListener('DOMContentLoaded', init);
 
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -80,7 +68,8 @@ function init()
             'playsinline': 1
           },
           events: {
-            'onReady': onPlayerReady,
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
           }
         });
       }
@@ -104,8 +93,77 @@ function init()
         }
       }
 
+      let currentPageSet = 1;
+
+      function flipToPage(newPageSet) 
+      {
 
 
 
-  //call the init function once the DOM loads
-  document.addEventListener('DOMContentLoaded', init);
+        if(newPageSet < 1)
+        {
+            newPageSet = 1;
+            console.log("Can't be less than 1");
+        }
+        else if(newPageSet > 3)
+        {
+            newPageSet = 3;
+            console.log("Can't be over 3");
+        }
+
+        if(newPageSet != currentPageSet)
+        {
+
+            const leftPage = document.getElementById("leftPage");
+            const topPage = document.getElementById("topPage");
+            const bottomPage = document.getElementById("bottomPage");
+        
+        
+        
+            const pageSources = ["images/rulebookPages/page1.jpeg", "images/rulebookPages/page2.jpeg", "images/rulebookPages/page3.jpeg", "images/rulebookPages/page4.jpeg", "images/rulebookPages/page5.jpeg", "images/rulebookPages/page6.jpeg"];
+        
+
+
+
+            topPage.style.display = "block";
+
+            if(newPageSet > currentPageSet)
+            {
+                topPage.src = bottomPage.src;
+                topPage.style.animation = "flipToNext 0.8s ease";
+                bottomPage.src = pageSources[2 * (newPageSet - 1) + 1];
+
+                setTimeout(afterNextAnim, 795);
+            }
+            else
+            {
+                topPage.src = pageSources[2 * (newPageSet - 1) + 1];
+                leftPage.src = pageSources[2 * (newPageSet - 1)];
+                topPage.style.animation = "flipToPrevious 0.8s ease";
+
+                setTimeout(afterPrevAnim, 795);
+
+            }
+
+
+
+            function afterNextAnim()
+            {
+                topPage.style.display = 'none';
+                leftPage.src = pageSources[2 * (newPageSet - 1)];
+            }
+
+            function afterPrevAnim()
+            {
+                topPage.style.display = 'none';
+                bottomPage.src = pageSources[2 * (newPageSet - 1) + 1];
+            }
+
+            currentPageSet = newPageSet;
+
+        }
+
+
+
+    }
+

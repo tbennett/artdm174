@@ -63,30 +63,45 @@ video, audio{
     color: #e4f6fd;
     font-size: max(14px, 2vmin);
 }
-  
-#book{
-    position: relative;
+
+#book
+{
     display: flex;
     justify-content: center;
+    height: 100vmin;
+    width: 160vmin;
+
+    margin: 0 auto;
+}
+  
+#rightPage{
+    position: relative;
+
 
     height: 100vmin;
+    width: 80vmin;
 
-    margin: 2%;
+    margin: 0;
 }
 
-#leftPage, #flipPage, #rightPage
+#bottomPage
 {
-    height: 100vmin;
-    color: red;
+    height: 100%;
+    width: 100%;
 }
 
-#flipPage
+
+#topPage
 {
     display: none;
 
     position: absolute;
+
+    height: 100vmin;
+    width: 80vmin;
+
     top: 0px;
-    right: 0px;
+    left: 0px;
 }
 
 
@@ -193,7 +208,7 @@ h1{
 }
 
 
-@keyframes flip{
+@keyframes flipToNext{
     /*when the pressed animation starts, shrink the element and make it slightly opaque*/
     0%{
         box-shadow: 0px 0px 25px black;
@@ -207,7 +222,28 @@ h1{
     /*when the press animation ends, set the element to a normal size and make it not opaque at all*/
     100%{
         scale: 5% 100%;
-        translate: -300px 0px;
+        translate: -40vmin 0px;
+    }
+
+}
+
+@keyframes flipToPrevious{
+    /*when the pressed animation starts, shrink the element and make it slightly opaque*/
+    0%{
+        box-shadow: 0px 0px 25px black;
+        scale: 5% 100%;
+        translate: -40vmin 0px;
+    }
+
+    50%
+    {
+        box-shadow: 25px 0px 20px black;
+    }
+
+    /*when the press animation ends, set the element to a normal size and make it not opaque at all*/
+    100%{
+        scale: 100%;
+        translate: 0vmin 0px;
     }
 
 }
