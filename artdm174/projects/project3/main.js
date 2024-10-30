@@ -44,6 +44,7 @@ function init()
     }
 
 
+
 }
 
         //call the init function once the DOM loads
@@ -86,35 +87,59 @@ function init()
       //    the player should play for six seconds and then stop.
       var done = false;
 
+      let myTimer;
+
       function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
+        switch (event.data) {
+            case YT.PlayerState.PLAYING:
+                myTimer = setInterval(getTime, 1000, event);
+                break;
+            case !YT.PlayerState.PLAYING:
+                if (!myTimer) {
+                    console.log("no timer");
+                }
+                break;
+            default:
+                clearInterval(myTimer);
+                console.log("stopping timer");
         }
-      }
+    }
+    
+    // 6. get the currentTime of the video and trigger the
+    // manageCues function if we are watching the inital video.
+    function getTime(event) {
+        time = Math.floor(event.target.getCurrentTime());
+
+        manageCues(time);
+
+    }
+
+    function manageCues(currentTime)
+    {
+            console.log("Time is currently " + currentTime);
+
+            if(currentTime === 109)
+            {
+                flipToPage(3);
+            }
+            else if(currentTime === 587)
+            {
+                flipToPage(4);
+            }
+    }
 
       let currentPageSet = 1;
 
 
-      
+
+
       function flipToPage(newPageSet) 
       {
 
 
+        if(newPageSet >= 1 && newPageSet <= 5 && newPageSet != currentPageSet)
+        {
 
-        if(newPageSet < 1)
-        {
-            newPageSet = 1;
-            console.log("Can't be less than 1");
-        }
-        else if(newPageSet > 3)
-        {
-            newPageSet = 3;
-            console.log("Can't be over 3");
-        }
-
-        if(newPageSet != currentPageSet)
-        {
 
             const leftPage = document.getElementById("leftPage");
             const topPage = document.getElementById("topPage");
@@ -122,10 +147,8 @@ function init()
         
         
         
-            const pageSources = ["images/rulebookPages/page1.jpeg", "images/rulebookPages/page2.jpeg", "images/rulebookPages/page3.jpeg", "images/rulebookPages/page4.jpeg", "images/rulebookPages/page5.jpeg", "images/rulebookPages/page6.jpeg"];
+            const pageSources = ["images/rulebookPages/page1.jpeg", "images/rulebookPages/page2.jpeg", "images/rulebookPages/page3.jpeg", "images/rulebookPages/page4.jpeg", "images/rulebookPages/page5.jpeg", "images/rulebookPages/page6.jpeg", "images/rulebookPages/page7.jpeg", "images/rulebookPages/page8.jpeg"];
         
-
-
 
             topPage.style.display = "block";
 
@@ -133,17 +156,45 @@ function init()
             {
                 topPage.src = bottomPage.src;
                 topPage.style.animation = "flipToNext 0.8s ease";
-                bottomPage.src = pageSources[2 * (newPageSet - 1) + 1];
 
-                setTimeout(afterNextAnim, 795);
+
+                if(newPageSet === 5)
+                {
+                    leftPage.style.display = 'none';
+                    bottomPage.src = pageSources[7];
+                    afterNextAnim();
+                }
+                else
+                {
+                    bottomPage.src = pageSources[2 * (newPageSet - 1)];
+                    setTimeout(afterNextAnim, 795);
+                }
+
+
             }
             else
             {
-                topPage.src = pageSources[2 * (newPageSet - 1) + 1];
-                leftPage.src = pageSources[2 * (newPageSet - 1)];
+
+                leftPage.src = pageSources[2 * (newPageSet - 1) - 1];
+
                 topPage.style.animation = "flipToPrevious 0.8s ease";
 
-                setTimeout(afterPrevAnim, 795);
+                if(newPageSet === 1)
+                {
+                    topPage.src = pageSources[0];
+                    leftPage.style.display = 'none';
+                    setTimeout(afterPrevAnim, 795);
+                }
+                else if(currentPageSet === 5)
+                {
+                    afterPrevAnim();
+                }
+                else
+                {
+                    topPage.src = pageSources[2 * (newPageSet - 1)];
+                    setTimeout(afterPrevAnim, 795);
+                }
+
 
             }
 
@@ -152,13 +203,25 @@ function init()
             function afterNextAnim()
             {
                 topPage.style.display = 'none';
-                leftPage.src = pageSources[2 * (newPageSet - 1)];
+
+                if(newPageSet != 5)
+                {
+                        leftPage.style.display = 'block';
+                        leftPage.src = pageSources[2 * (newPageSet - 1) - 1];
+                }
             }
 
             function afterPrevAnim()
             {
                 topPage.style.display = 'none';
-                bottomPage.src = pageSources[2 * (newPageSet - 1) + 1];
+
+                if(newPageSet != 1)
+                {
+                    leftPage.style.display = 'block';
+                    leftPage.src = pageSources[2 * (newPageSet - 1) - 1];
+                }
+
+                bottomPage.src = pageSources[2 * (newPageSet - 1)];
             }
 
             currentPageSet = newPageSet;

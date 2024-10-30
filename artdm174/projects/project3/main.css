@@ -104,6 +104,10 @@ video, audio{
     left: 0px;
 }
 
+#leftPage{
+    display: none;
+}
+
 
 
 /* make all the icons be 10vmins tall */
